@@ -3,6 +3,15 @@
     "buildCommand": "npm run build",
     "outputDirectory": "",
     "installCommand": "npm install",
-    "framework": "express",
-    "devCommand": "npm run build && npm run start"
+    "framework": "Other",
+    "builds": [{
+        "src": "dist/server/index.js",
+        "use": "@vercel/node"
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/dist/server/index.js"
+        }
+    ]
 }
