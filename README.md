@@ -2,7 +2,6 @@
 
 这是一个基于 Vont 框架构建的现代化全栈应用示例，展示了前后端一体化开发和 Vercel 部署的最佳实践。
 
-
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-repo/vontjs-starter)
 
 ## ✨ 特性
