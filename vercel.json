@@ -4,5 +4,5 @@
     "outputDirectory": "",
     "installCommand": "npm install",
     "framework": null,
-    "devCommand": "npm run start"
+    "devCommand": "npm run build && npm run start"
 }
