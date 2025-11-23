@@ -5,16 +5,6 @@
   "installCommand": "npm install",
   "framework": null,
   "regions": ["hkg1"],
-  "builds": [
-    {
-      "src": "dist/server/index.js",
-      "use": "@vercel/node",
-      "config": {
-        "maxDuration": 10,
-        "memory": 1024
-      }
-    }
-  ],
   "routes": [
     {
       "src": "/assets/(.*)",
