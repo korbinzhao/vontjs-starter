@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "Starter application for Vontjs",
   "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "vont dev",
-    "build": "vont build",
+    "build": "npm run type-check && vont build",
+    "build:vercel": "vont build",
     "start": "vont start",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "preview": "npm run build && npm start"
   },
   "dependencies": {
     "@vercel/node": "^5.5.9",

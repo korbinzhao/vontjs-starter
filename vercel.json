@@ -1,17 +1,42 @@
 {
-    "$schema": "https://openapi.vercel.sh/vercel.json",
-    "buildCommand": "npm run build",
-    "outputDirectory": "",
-    "installCommand": "npm install",
-    "framework": "Other",
-    "builds": [{
-        "src": "dist/server/index.js",
-        "use": "@vercel/node"
-    }],
-    "routes": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": null,
+  "regions": ["hkg1"],
+  "builds": [
+    {
+      "src": "dist/server/index.js",
+      "use": "@vercel/node",
+      "config": {
+        "maxDuration": 10,
+        "memory": 1024
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/dist/client/assets/$1",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/server/index.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
         {
-            "src": "/(.*)",
-            "dest": "/dist/server/index.js"
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
         }
-    ]
+      ]
+    }
+  ]
 }
