@@ -7,40 +7,40 @@
     "regions": [
         "hkg1"
     ],
-    "outputDirectory": "",
+    "outputDirectory": "dist",
     "builds": [
         {
-            "src": "dist/server/index.js",
+            "src": "/server/index.js",
             "use": "@vercel/node"
         },
         {
-            "src": "dist/api",
+            "src": "/api",
             "use": "@vercel/node"
         },
         {
-            "src": "dist/client/assets",
+            "src": "/client/assets",
             "use": "@vercel/static-build"
         },
         {
-            "src": "package.json",
+            "src": "/package.json",
             "use": "@vercel/static-build"
         }
     ],
     "routes": [
         {
             "src": "/assets/(.*)",
-            "dest": "/dist/client/assets/$1",
+            "dest": "/client/assets/$1",
             "headers": {
                 "cache-control": "public, max-age=31536000, immutable"
             }
         },
         {
             "src": "/api/(.*)",
-            "dest": "/dist/api/$1"
+            "dest": "/api/$1"
         },
         {
             "src": "/(.*)",
-            "dest": "/dist/server/index.js"
+            "dest": "/server/index.js"
         }
     ]
 }
