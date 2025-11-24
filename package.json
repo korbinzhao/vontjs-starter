@@ -12,7 +12,8 @@
     "build:vercel": "vont build",
     "start": "vont start",
     "type-check": "tsc --noEmit",
-    "preview": "npm run build && npm start"
+    "preview": "npm run build && npm start",
+    "postinstall": "node scripts/install-rollup-linux.js"
   },
   "dependencies": {
     "@vercel/node": "^5.5.9",
