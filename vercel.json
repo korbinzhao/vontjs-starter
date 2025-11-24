@@ -1,41 +1,13 @@
 {
-    "$schema": "https://openapi.vercel.sh/vercel.json",
     "version": 2,
-    "buildCommand": "npm run build",
-    "installCommand": "npm install",
-    "devCommand": "npm run start",
-    "framework": "express",
     "outputDirectory": "dist",
     "builds": [
         {
-            "src": "/server/index.js",
+            "src": "server/index.js",
             "use": "@vercel/node"
-        },
-        {
-            "src": "/api",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "/client/assets",
-            "use": "@vercel/static-build"
-        },
-        {
-            "src": "/package.json",
-            "use": "@vercel/static-build"
         }
     ],
     "routes": [
-        {
-            "src": "/assets/(.*)",
-            "dest": "/client/assets/$1",
-            "headers": {
-                "cache-control": "public, max-age=31536000, immutable"
-            }
-        },
-        {
-            "src": "/api/(.*)",
-            "dest": "/api/$1"
-        },
         {
             "src": "/(.*)",
             "dest": "/server/index.js"
